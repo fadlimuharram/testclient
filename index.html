@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 card__profile">
+        <div class="card__profile-item">
+          <div class="top">
+            <img src="https://via.placeholder.com/80" class="rounded" alt="Cinque Terre">
+            <div class="title">
+              <h5>Fadli Muharram</h5>
+              <p>fadlimuharrambolt4g@gmail.com</p>
+            </div>
+
+          </div>
+          <div class="middle">
+            <button type="button" class="btn btn-danger" id="togglenotif">10 Notification</button>
+            <button type="button" class="btn btn-success" id="toggleinbox">50 Inbox</button>
+          </div>
+          <div class="bottom">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalexit">Exit</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="movetxt">
+          <p>text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil eum beatae sit dolore
+            pariatur quisquam.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-4 card">
+            <div class="card-item">
+              <div class="header">
+                <h5>Ini Header</h5>
+              </div>
+              <div class="body">
+                <div id="monthly-performances-chart" style="width:100%; height:400px;"></div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-6 card">
+            <div class="card-item">
+              <div class="header">
+                <h5>Ini Header</h5>
+              </div>
+              <div class="body">
+                <table id="monthly-performances" class="table table-striped table-bordered" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>day</th>
+                      <th>target_time</th>
+                      <th>work_time</th>
+                      <th>achievement</th>
+                      <th>overtime</th>
+
+                    </tr>
+                  </thead>
+
+
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 card">
+        <div class="card-item">
+          <div class="header">
+            <h5>Ini Header</h5>
+
+
+          </div>
+          <div class="body">
+            <div class="row">
+              <div class="col-2">
+                <p>Start Date</p>
+
+                <div class="form-group">
+                  <input class="form-control" type="date" value="2011-08-19" id="startdate">
+                </div>
+              </div>
+              <div class="col-2">
+                <p>End Date</p>
+
+                <div class="form-group">
+                  <input class="form-control" type="date" value="2011-08-19" id="enddate">
+                </div>
+
+              </div>
+              <div class="col-2">
+
+                <button class="btn btn-primary" id="btn__range">Reload</button>
+              </div>
+            </div>
+
+            <table id="yearly-performances" class="table table-striped table-bordered" style="width:100%">
+              <thead>
+                <tr>
+                  <th>day</th>
+                  <th>target_time</th>
+                  <th>work_time</th>
+                  <th>achievement</th>
+                  <th>overtime</th>
+
+                </tr>
+              </thead>
+
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4 card">
+        <div class="card-item">
+          <div class="header">
+            <h5>Column</h5>
+          </div>
+          <div class="body">
+            <div id="yearly-performances-chart-column" style="width:100%; height:400px;"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-4 card">
+        <div class="card-item">
+          <div class="header">
+            <h5>Pie</h5>
+          </div>
+          <div class="body">
+            <div id="yearly-performances-chart-pie" style="width:100%; height:400px;"></div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 card">
+        <div class="card-item">
+          <div class="header">
+            <h5>Area</h5>
+          </div>
+          <div class="body">
+            <div id="yearly-performances-chart-area" style="width:100%; height:400px;"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="inbox__list">
+    <div class="row">
+      <div class="col-3 card">
+        <div class="card-item">
+          <div class="header">
+            <h5>Inbox</h5>
+          </div>
+          <div class="body">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Recipient's username"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+            </div>
+            <ul class="list-group list__inbox">
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="notification__list">
+    <div class="row">
+      <div class="col-3 card">
+        <div class="card-item">
+          <div class="header">
+            <h5>Notification</h5>
+          </div>
+          <div class="body">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Recipient's username"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+            </div>
+            <ul class="list-group list__notification">
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="modal fade" id="modalexit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Log Out</h5>
+
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to logged out ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+          <button type="button" class="btn btn-primary">Log Me Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/monthly.js"></script>
+  <script src="js/yearly.js"></script>
+</body>
+
+</html>
